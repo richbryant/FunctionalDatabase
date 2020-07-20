@@ -30,6 +30,7 @@ namespace FunctionalDatabase.Server
                     });
 
             services.AddTransient<ISupplierData, SupplierData>();
+            services.AddTransient<IProductData, ProductData>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

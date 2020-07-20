@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using LinqToDB.Mapping;
 
-namespace FunctionalDatabase.Server.Data.Models
+namespace FunctionalDatabase.Shared.Models
 {
     [Table(Schema="dbo", Name="Orders")]
 	public partial class Order
 	{
-		[PrimaryKey, Identity] public int       OrderID        { get; set; } // int
-		[Column,     Nullable] public string    CustomerID     { get; set; } // nchar(5)
-		[Column,     Nullable] public int?      EmployeeID     { get; set; } // int
+		[PrimaryKey, Identity] public int       OrderId        { get; set; } // int
+		[Column,     Nullable] public string    CustomerId     { get; set; } // nchar(5)
+		[Column,     Nullable] public int?      EmployeeId     { get; set; } // int
 		[Column,     Nullable] public DateTime? OrderDate      { get; set; } // datetime
 		[Column,     Nullable] public DateTime? RequiredDate   { get; set; } // datetime
 		[Column,     Nullable] public DateTime? ShippedDate    { get; set; } // datetime

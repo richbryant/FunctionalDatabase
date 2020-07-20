@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using FunctionalDatabase.Server.Data.Models;
+using FunctionalDatabase.Shared.Models;
 using LanguageExt;
 using LinqToDB;
 using Microsoft.AspNetCore.Http;
@@ -50,58 +50,71 @@ namespace FunctionalDatabase.Server
 
         public static Category Find(this ITable<Category> table, int categoryId) =>
             table.FirstOrDefault(t =>
-                t.CategoryID == categoryId);
+                t.CategoryId == categoryId);
 
         public static Task<Category> FindAsync(this ITable<Category> table, int categoryId) =>
             table.FirstOrDefaultAsync(t =>
-                t.CategoryID == categoryId);
+                t.CategoryId == categoryId);
 
         public static Customer Find(this ITable<Customer> table, string customerId) =>
             table.FirstOrDefault(t =>
-                t.CustomerID == customerId);
+                t.CustomerId == customerId);
 
         public static Task<Customer> FindAsync(this ITable<Customer> table, string customerId) =>
             table.FirstOrDefaultAsync(t =>
-                t.CustomerID == customerId);
+                t.CustomerId == customerId);
 
         public static Employee Find(this ITable<Employee> table, int employeeId) =>
             table.FirstOrDefault(t =>
-                t.EmployeeID == employeeId);
+                t.EmployeeId == employeeId);
 
         public static Task<Employee> FindAsync(this ITable<Employee> table, int employeeId) =>
             table.FirstOrDefaultAsync(t =>
-                t.EmployeeID == employeeId);
+                t.EmployeeId == employeeId);
 
         public static Order Find(this ITable<Order> table, int orderId) =>
             table.FirstOrDefault(t =>
-                t.OrderID == orderId);
+                t.OrderId == orderId);
+
+        public static Task<Order> FindAsync(this ITable<Order> table, int orderId) =>
+            table.FirstOrDefaultAsync(t =>
+                t.OrderId == orderId);
 
         public static OrderDetail Find(this ITable<OrderDetail> table, int orderId, int productId) =>
             table.FirstOrDefault(t =>
-                t.OrderID   == orderId &&
-                t.ProductID == productId);
+                t.OrderId   == orderId &&
+                t.ProductId == productId);
+
+        public static Task<OrderDetail> FindAsync(this ITable<OrderDetail> table, int orderId, int productId) =>
+            table.FirstOrDefaultAsync(t =>
+                t.OrderId   == orderId &&
+                t.ProductId == productId);
 
         public static Product Find(this ITable<Product> table, int productId) =>
             table.FirstOrDefault(t =>
-                t.ProductID == productId);
+                t.ProductId == productId);
+
+        public static Task<Product> FindAsync(this ITable<Product> table, int productId) =>
+            table.FirstOrDefaultAsync(t =>
+                t.ProductId == productId);
 
         public static Region Find(this ITable<Region> table, int regionId) =>
             table.FirstOrDefault(t =>
-                t.RegionID == regionId);
+                t.RegionId == regionId);
 
         public static Shipper Find(this ITable<Shipper> table, int shipperId) =>
             table.FirstOrDefault(t =>
-                t.ShipperID == shipperId);
+                t.ShipperId == shipperId);
 
         public static Supplier Find(this ITable<Supplier> table, int supplierId) =>
             table.FirstOrDefault(t =>
-                t.SupplierID == supplierId);
+                t.SupplierId == supplierId);
 
         public static Task<Supplier> FindAsync(this ITable<Supplier> table, int supplierId) =>
-            table.FirstOrDefaultAsync(t => t.SupplierID == supplierId);
+            table.FirstOrDefaultAsync(t => t.SupplierId == supplierId);
 
         public static Territory Find(this ITable<Territory> table, string territoryId) =>
             table.FirstOrDefault(t =>
-                t.TerritoryID == territoryId);
+                t.TerritoryId == territoryId);
     }
 }

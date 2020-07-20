@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using LinqToDB.Mapping;
 
-namespace FunctionalDatabase.Server.Data.Models
+namespace FunctionalDatabase.Shared.Models
 {
     [Table(Schema="dbo", Name="Suppliers")]
     public partial class Supplier
     {
-        [PrimaryKey, Identity   ] public int    SupplierID   { get; set; } // int
+        [PrimaryKey, Identity   ] public int    SupplierId   { get; set; } // int
         [Column,     NotNull    ] public string CompanyName  { get; set; } // nvarchar(40)
         [Column,        Nullable] public string ContactName  { get; set; } // nvarchar(30)
         [Column,        Nullable] public string ContactTitle { get; set; } // nvarchar(30)
@@ -24,7 +24,7 @@ namespace FunctionalDatabase.Server.Data.Models
         /// <summary>
         /// FK_Products_Suppliers_BackReference
         /// </summary>
-        [Association(ThisKey="SupplierID", OtherKey="SupplierID", CanBeNull=true, Relationship=Relationship.OneToMany, IsBackReference=true)]
+        [Association(ThisKey="SupplierId", OtherKey="SupplierId", CanBeNull=true, Relationship=Relationship.OneToMany, IsBackReference=true)]
         public IEnumerable<Product> Products { get; set; }
 
         #endregion

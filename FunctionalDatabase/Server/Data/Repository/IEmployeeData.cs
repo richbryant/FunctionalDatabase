@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using FunctionalDatabase.Server.Data.Models;
+using FunctionalDatabase.Shared.Models;
 using LanguageExt;
 
 namespace FunctionalDatabase.Server.Data.Repository

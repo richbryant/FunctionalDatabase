@@ -1,13 +1,13 @@
-﻿using System;
+﻿using LinqToDB.Mapping;
+using System;
 using System.Collections.Generic;
-using LinqToDB.Mapping;
 
-namespace FunctionalDatabase.Server.Data.Models
+namespace FunctionalDatabase.Shared.Models
 {
     [Table(Schema="dbo", Name="Employees")]
 	public partial class Employee
 	{
-		[PrimaryKey, Identity   ] public int       EmployeeID      { get; set; } // int
+		[PrimaryKey, Identity   ] public int       EmployeeId      { get; set; } // int
 		[Column,     NotNull    ] public string    LastName        { get; set; } // nvarchar(20)
 		[Column,     NotNull    ] public string    FirstName       { get; set; } // nvarchar(10)
 		[Column,        Nullable] public string    Title           { get; set; } // nvarchar(30)

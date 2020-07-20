@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using FunctionalDatabase.Server.Data.Models;
+using FunctionalDatabase.Shared.Models;
 using LanguageExt;
 using LinqToDB;
 using static LanguageExt.Prelude;

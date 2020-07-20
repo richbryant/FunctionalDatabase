@@ -1,4 +1,4 @@
-﻿using FunctionalDatabase.Server.Data.Models;
+﻿using FunctionalDatabase.Shared.Models;
 using LinqToDB;
 using LinqToDB.Configuration;
 using LinqToDB.Data;

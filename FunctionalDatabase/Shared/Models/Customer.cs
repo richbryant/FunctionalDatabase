@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using LinqToDB.Mapping;
 
-namespace FunctionalDatabase.Server.Data.Models
+namespace FunctionalDatabase.Shared.Models
 {
     [Table(Schema="dbo", Name="Customers")]
     public partial class Customer
     {
-        [PrimaryKey, NotNull    ] public string CustomerID   { get; set; } // nchar(5)
+        [PrimaryKey, NotNull    ] public string CustomerId   { get; set; } // nchar(5)
         [Column,     NotNull    ] public string CompanyName  { get; set; } // nvarchar(40)
         [Column,        Nullable] public string ContactName  { get; set; } // nvarchar(30)
         [Column,        Nullable] public string ContactTitle { get; set; } // nvarchar(30)

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 using LinqToDB.Mapping;
 
-namespace FunctionalDatabase.Server.Data.Models
+namespace FunctionalDatabase.Shared.Models
 {
     [Table(Schema="dbo", Name="Region")]
     public partial class Region
     {
-        [PrimaryKey, NotNull] public int    RegionID          { get; set; } // int
+        [PrimaryKey, NotNull] public int    RegionId          { get; set; } // int
         [Column,     NotNull] public string RegionDescription { get; set; } // nchar(50)
 
         #region Associations

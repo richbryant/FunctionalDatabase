@@ -7,21 +7,15 @@ namespace FunctionalDatabase.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CustomersController : ControllerBase
+    public class OrderDetailsController : ControllerBase
     {
-        private readonly ICustomerData _data;
+        private readonly IOrderDetailsData _data;
 
-        public CustomersController(ICustomerData data) => _data = data;
+        public OrderDetailsController(IOrderDetailsData data) => _data = data;
 
         [HttpGet]
         public async Task<IActionResult> Get()
             => await _data.TryGetAsync()
-                .ToActionResult();
-
-        [HttpGet]
-        [Route("find/{id}")]
-        public async Task<IActionResult> Get(string id)
-            => await _data.TryGetAsync(id)
                 .ToActionResult();
 
         [HttpGet]
@@ -30,20 +24,19 @@ namespace FunctionalDatabase.Server.Controllers
             => await _data.TryGetAsync(page, pageSize)
                 .ToActionResult();
 
-        
         [HttpPost]
-        public async Task<IActionResult> Insert(Customer customer)
-            => await _data.TryInsertAsync(customer)
+        public async Task<IActionResult> Insert(OrderDetail orderDetail)
+            => await _data.TryInsertAsync(orderDetail)
                 .ToActionResult();
 
         [HttpPut]
-        public async Task<IActionResult> Update(Customer customer)
-            => await _data.TryUpdateAsync(customer)
+        public async Task<IActionResult> Update(OrderDetail orderDetail)
+            => await _data.TryUpdateAsync(orderDetail)
                 .ToActionResult();
 
         [HttpDelete]
-        public async Task<IActionResult> Delete(Customer customer)
-            => await _data.TryDeleteAsync(customer)
+        public async Task<IActionResult> Delete(OrderDetail orderDetail)
+            => await _data.TryDeleteAsync(orderDetail)
                 .ToActionResult();
     }
 }

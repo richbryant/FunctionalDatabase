@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
-using FunctionalDatabase.Server.Data.Models;
 using FunctionalDatabase.Server.Data.Repository;
+using FunctionalDatabase.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FunctionalDatabase.Server.Controllers

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using FunctionalDatabase.Client.Data.Local;
+using DnetIndexedDb;
 
 namespace FunctionalDatabase.Client
 {
@@ -16,6 +18,8 @@ namespace FunctionalDatabase.Client
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
+
+            builder.Services.AddIndexedDbDatabase<ProductsDb>(o => o.UseDatabase(DataModel.GetDataModel()));
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 

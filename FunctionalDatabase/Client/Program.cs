@@ -1,14 +1,11 @@
 using System;
-using System.Net.Http;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using FunctionalDatabase.Client.Data.Local;
 using DnetIndexedDb;
+using FunctionalDatabase.Client.Data.Remote;
+using Refit;
 
 namespace FunctionalDatabase.Client
 {
@@ -21,7 +18,10 @@ namespace FunctionalDatabase.Client
 
             builder.Services.AddIndexedDbDatabase<ProductsDb>(o => o.UseDatabase(DataModel.GetDataModel()));
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddRefitClient<IProductsApi>(new RefitSettings{ContentSerializer = new Utility.JsonContentSerializer()})
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:44352/api"));
+            
+            builder.Services.AddTransient<IProductsDataService, ProductsDataService>();
 
             await builder.Build().RunAsync();
         }

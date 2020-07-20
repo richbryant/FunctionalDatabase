@@ -18,14 +18,14 @@ namespace FunctionalDatabase.Client.Data.Local
                         Name="productStore",
                         Key = new IndexedDbStoreParameter
                         {
-                            KeyPath = "productID",
+                            KeyPath = "productId",
                             AutoIncrement = true
                         },
                         Indexes = new List<IndexedDbIndex>
                         {
                             new IndexedDbIndex
                             {
-                                Name = "productID", Definition = new IndexedDbIndexParameter { Unique = true }
+                                Name = "productId", Definition = new IndexedDbIndexParameter { Unique = true }
                             },
                             new IndexedDbIndex
                             {
@@ -33,11 +33,11 @@ namespace FunctionalDatabase.Client.Data.Local
                             },
                             new IndexedDbIndex
                             {
-                                Name = "supplierID", Definition = new IndexedDbIndexParameter {Unique = false}
+                                Name = "supplierId", Definition = new IndexedDbIndexParameter {Unique = false}
                             },
                             new IndexedDbIndex
                             {
-                                Name = "categoryID", Definition = new IndexedDbIndexParameter {Unique = false}
+                                Name = "categoryId", Definition = new IndexedDbIndexParameter {Unique = false}
                             },
                             new IndexedDbIndex
                             {

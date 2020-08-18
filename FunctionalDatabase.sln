@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalDatabase.Server", "FunctionalDatabase\Server\FunctionalDatabase.Server.csproj", "{0D9DD769-088D-4B69-8969-BFC2777DEFDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalDatabase.Server", "FunctionalDatabase\Server\FunctionalDatabase.Server.csproj", "{0D9DD769-088D-4B69-8969-BFC2777DEFDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalDatabase.Client", "FunctionalDatabase\Client\FunctionalDatabase.Client.csproj", "{FF89A7DD-1016-449C-AB9A-AC07AF87D9AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalDatabase.Client", "FunctionalDatabase\Client\FunctionalDatabase.Client.csproj", "{FF89A7DD-1016-449C-AB9A-AC07AF87D9AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionalDatabase.Shared", "FunctionalDatabase\Shared\FunctionalDatabase.Shared.csproj", "{1750630F-CD8A-49F9-A50D-0D977769A6A4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionalDatabase.Shared", "FunctionalDatabase\Shared\FunctionalDatabase.Shared.csproj", "{1750630F-CD8A-49F9-A50D-0D977769A6A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,11 @@
-@page "/fetchdata"
+﻿@page "/products"
+@inherits ReactiveComponentBase<ProductsListViewModel>
 
 <h1>Products</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (NoData)
+@if (ViewModel.Products is null)
 {
     <p><em>Loading...</em></p>
 }
@@ -12,16 +13,16 @@ else
 {
     <table class="table">
         <thead>
-            <tr>
-                <th>ProductName</th>
-                <th>Quantity / Unit</th>
-                <th>Unit Price ($)</th>
-                <th>Units In Stock</th>
-                <th>Orders #</th>
-            </tr>
+        <tr>
+            <th>ProductName</th>
+            <th>Quantity / Unit</th>
+            <th>Unit Price ($)</th>
+            <th>Units In Stock</th>
+            <th>Orders #</th>
+        </tr>
         </thead>
         <tbody>
-        @foreach (var product in Products)
+        @foreach (var product in ViewModel.Products)
         {
             <tr>
                 <td>@product.ProductName</td>
@@ -34,4 +35,3 @@ else
         </tbody>
     </table>
 }
-

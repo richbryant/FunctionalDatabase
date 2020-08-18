@@ -1,15 +1,12 @@
-using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using FunctionalDatabase.Client.Data.Local;
 using DnetIndexedDb;
-using FunctionalDatabase.Client.Data.Remote;
-using Refit;
+using Flurl.Http;
 
 namespace FunctionalDatabase.Client
 {
-    public class Program
+    public static class Program
     {
         public static async Task Main(string[] args)
         {
@@ -18,10 +15,7 @@ namespace FunctionalDatabase.Client
 
             builder.Services.AddIndexedDbDatabase<ProductsDb>(o => o.UseDatabase(DataModel.GetDataModel()));
 
-            builder.Services.AddRefitClient<IProductsApi>(new RefitSettings{ContentSerializer = new Utility.JsonContentSerializer()})
-                .ConfigureHttpClient(c => c.BaseAddress = new Uri("https://localhost:44352/api"));
-            
-            builder.Services.AddTransient<IProductsDataService, ProductsDataService>();
+            FlurlHttp.Configure(settings => settings.HttpClientFactory = new BlazorHttpClientFactory());
 
             await builder.Build().RunAsync();
         }

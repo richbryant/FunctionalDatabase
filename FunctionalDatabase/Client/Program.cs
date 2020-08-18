@@ -13,7 +13,7 @@ namespace FunctionalDatabase.Client
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
             builder.RootComponents.Add<App>("app");
 
-            builder.Services.AddIndexedDbDatabase<ProductsDb>(o => o.UseDatabase(DataModel.GetDataModel()));
+            builder.Services.AddIndexedDbDatabase<NorthwindDb>(o => o.UseDatabase(DataModel.GetDataModel()));
 
             FlurlHttp.Configure(settings => settings.HttpClientFactory = new BlazorHttpClientFactory());
 

@@ -3,9 +3,9 @@ using Microsoft.JSInterop;
 
 namespace FunctionalDatabase.Client.Data.Local
 {
-    public class ProductsDb : IndexedDbInterop
+    public class NorthwindDb : IndexedDbInterop
     {
-        public ProductsDb(IJSRuntime jsRuntime, IndexedDbOptions<ProductsDb> options) 
+        public NorthwindDb(IJSRuntime jsRuntime, IndexedDbOptions options)
             :base(jsRuntime, options)
         { }
     }

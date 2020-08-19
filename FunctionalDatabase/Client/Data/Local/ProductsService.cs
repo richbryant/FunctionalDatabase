@@ -17,11 +17,15 @@ namespace FunctionalDatabase.Client.Data.Local
         public ProductsService(NorthwindDb db) => _db = db;
 
         public async Task<List<Product>> GetProductsAsync()
-            => await _db.GetAll<Product>("Product");
+        {
+            await _db.OpenIndexedDb();
+            return await _db.GetAll<Product>("Product");
+        }
 
         public async Task LoadProductsAsync(List<Product> products)
-            => await _db.AddItems<Product>("Product", products);
-
-
+        {
+            await _db.OpenIndexedDb();
+            await _db.AddItems<Product>("Product", products);
+        }
     }
 }

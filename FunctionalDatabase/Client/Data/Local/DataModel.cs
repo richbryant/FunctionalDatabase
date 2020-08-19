@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
 using DnetIndexedDb.Models;
 
-
 namespace FunctionalDatabase.Client.Data.Local
 {
     public static class DataModel
     {
-        public static IndexedDbDatabaseModel GetDataModel() 
+        public static IndexedDbDatabaseModel GetDataModel()
             => new IndexedDbDatabaseModel
             {
                 Name = "NorthWind",

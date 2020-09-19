@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FunctionalDatabase.Client.Data.Remote;
 using FunctionalDatabase.Shared.Models;
-using LanguageExt;
 using ReactiveUI;
 using RxUnit = System.Reactive.Unit;
 
@@ -16,18 +15,12 @@ namespace FunctionalDatabase.Client.ViewModels
 
         public ReactiveCommand<RxUnit, List<Product>> ProductLoader { get; }
 
-        public ProductsListViewModel(TryAsync<List<Product>> productsFetcher = null)
+        public ProductsListViewModel(Func<Task<List<Product>>> productsFetcher = null)
         {
-            productsFetcher ??= ApiFunctions.TryGetProducts();
-            ProductsFunction = productsFetcher;
+            productsFetcher ??= ApiFunctions.GetProductsAsync;
 
-            ProductLoader = ReactiveCommand.CreateFromTask(LoadProductsAsync);
+            ProductLoader = ReactiveCommand.CreateFromTask(productsFetcher);
             _products = ProductLoader.ToProperty(this, x => x.Products, scheduler: RxApp.MainThreadScheduler);
         }
-
-        private readonly TryAsync<List<Product>> ProductsFunction;
-
-        private static async Task<List<Product>> LoadProductsAsync()
-            => (await ApiFunctions.GetProductsAsync()).ToList();
     }
 }

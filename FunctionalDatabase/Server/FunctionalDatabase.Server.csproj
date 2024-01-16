@@ -9,7 +9,7 @@
     <PackageReference Include="linq2db.AspNet" Version="3.0.1" />
     <PackageReference Include="linq2db.SqlServer" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="3.2.1" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
   <ItemGroup>
